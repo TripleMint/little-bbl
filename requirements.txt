@@ -1,6 +1,8 @@
-
-# Tested with 2.0.0
+# Tested with 2.0.0 and 2.2.0
 requests
 
-# Tested with 3.2.1
-BeautifulSoup
+# Tested with 4.3.2
+BeautifulSoup4
+
+# Tested with six 1.5.2
+six

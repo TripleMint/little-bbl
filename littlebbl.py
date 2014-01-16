@@ -6,7 +6,8 @@
 
 # scrape to identify error type, ie bad addy vs bad unit id
 import requests
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
+import six
 
 
 def get_borough_number(borough_name):
@@ -30,6 +31,7 @@ def get_borough_number(borough_name):
 
 def resolve(street_num, street_name, apt_num, borough_name):
     '''
+    All parameters should be strings
     '''
 
     URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
@@ -51,7 +53,11 @@ def resolve(street_num, street_name, apt_num, borough_name):
 
     # Fields should be None. An empty string should not be called
     # an error (eg. an empty string for FAPTNUM is expected for coops)
-    if any(x is None for x in list(POST_FORM.values())):
+
+    # Python 2 and 3 compatible
+    values = list(POST_FORM.values()) if six.PY3 else POST_FORM.values()
+
+    if any(x is None for x in values):
         print('Bad Inputs Error: Don\'t have everything needed'
               'to make POST request')
         return None
@@ -83,4 +89,4 @@ def resolve(street_num, street_name, apt_num, borough_name):
         return None
 
     # Block and lot are already in unicode
-    return unicode(borough), block, lot
+    return six.u(borough), block, lot

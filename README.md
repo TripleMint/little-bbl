@@ -10,6 +10,8 @@ For information on usage check out the github page for [little bbl](//suitey.git
    * tested with 2.0.0 and 2.2.0
  * [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/)
   * tested with 3.2.1
+ * [six](http://pythonhosted.org/six/) (For supporting python 2 and 3)
+  * tested with 1.5.2
 
 ### License
 
