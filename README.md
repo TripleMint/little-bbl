@@ -1,4 +1,7 @@
 # little-bbl
+little-bbl is a Python library to query nyc.gov data for a block and lot. It was built by Suitey for a daily hackathon.
+
+For more info check out the github page for [little-bbl](//suitey.github.io/little-bbl)
 
 ### License
 
