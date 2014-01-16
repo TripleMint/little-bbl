@@ -74,7 +74,13 @@ def resolve(street_num, street_name, apt_num, borough_name):
         block = block_tag.get('value')
 
     else:
-        print('Weird Error: HTML parser could not find block and/or lot')
+        error = soup.find(
+            'form', attrs={'name': 'FINDMP1A'}).find(
+            'font', attrs={'color': 'red'}).text
+        if error:
+            print("ERROR: {}".format(error))
+        else:
+            print("Unknown Error")
         return 0
 
     # Block and lot are already in unicode
