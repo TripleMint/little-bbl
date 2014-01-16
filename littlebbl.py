@@ -30,6 +30,7 @@ def get_borough_number(borough_name):
 
 def resolve(street_num, street_name, apt_num, borough_name):
     '''
+    All parameters should be strings
     '''
 
     URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
