@@ -76,4 +76,5 @@ def resolve(street_num, street_name, apt_num, borough_name):
         print('Weird Error: HTML parser could not find block and/or lot')
         return 0
 
+    # Block and lot are already in unicode
     return unicode(borough), block, lot
