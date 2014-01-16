@@ -64,7 +64,7 @@ def resolve(street_num, street_name, apt_num, borough_name):
 
     # Break if borough not in MH, BX, BK, QN, SI
     if not borough:
-        print 'Invalid Borough... breaking.'
+        print('Invalid Borough... breaking.')
         return
 
     # Generate data to post
