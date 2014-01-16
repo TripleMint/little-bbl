@@ -1,9 +1,10 @@
 # Tests for little bbl
 import littlebbl
+# import pytest
 
 
 def test_unicode_returned():
-    k = littlebbl.resolve('75', 'West End Ave', 'R9D', 'MH')
+    k = littlebbl.resolve('310', 'EAST 46TH STREET', '7U', 'MH')
     assert isinstance(k[0], unicode)
     assert isinstance(k[1], unicode)
     assert isinstance(k[2], unicode)
