@@ -54,7 +54,7 @@ def resolve(street_num, street_name, apt_num, borough_name):
     if any(x is None for x in list(POST_FORM.values())):
         print('Bad Inputs Error: Don\'t have everything needed'
               'to make POST request')
-        return 0
+        return None
 
     response = requests.post(URL, data=POST_FORM)
 
@@ -63,7 +63,7 @@ def resolve(street_num, street_name, apt_num, borough_name):
         soup = BeautifulSoup(response.text)
     else:
         print('Request Error: Did not get 200 HTTP response code')
-        return 0
+        return None
 
     lot_tag = soup.find('input', attrs={'name': 'q49_lot'})
     block_tag = soup.find('input', attrs={'name': 'q49_block_id'})
@@ -80,7 +80,7 @@ def resolve(street_num, street_name, apt_num, borough_name):
             print("ERROR: {}".format(error))
         else:
             print("Unknown Error")
-        return 0
+        return None
 
     # Block and lot are already in unicode
     return unicode(borough), block, lot
