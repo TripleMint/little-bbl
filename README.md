@@ -1,4 +1,7 @@
 # little bbl
+
+[![Build Status](https://travis-ci.org/Suitey/little-bbl.png?branch=master)](https://travis-ci.org/Suitey/little-bbl)
+
 little bbl is a Python library to query nyc.gov data for borough, block and lot info.
 
 For information on usage check out the github page for [little bbl](//suitey.github.io/little-bbl)
@@ -12,6 +15,21 @@ For information on usage check out the github page for [little bbl](//suitey.git
   * tested with 3.2.1
  * [six](http://pythonhosted.org/six/) (For supporting python 2 and 3)
   * tested with 1.5.2
+
+### Usage
+
+    import littlebbl
+
+    # Takes street number, street, unit and borough
+    littlebbl.resolve('75', '46th street', '7U', 'MH')
+
+The borough codes are:
+
+    'MH' = Manhattan
+    'BX' = Bronx
+    'BK' = Brooklyn
+    'QN' = Queens
+    'SI' = Staten Island
 
 ### License
 
