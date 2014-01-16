@@ -28,7 +28,7 @@ def get_borough_number(borough_name):
 #   3-tuple of strings, (borough, block, lot)
 #   or returns 0 if failure
 
-def get_bbl(street_num, street_name, apt_num, borough_name):
+def resolve(street_num, street_name, apt_num, borough_name):
     '''
     '''
 
@@ -39,6 +39,8 @@ def get_bbl(street_num, street_name, apt_num, borough_name):
     # apartment number in order to get the correct BBL.
 
     borough = get_borough_number(borough_name)
+
+    # Generate data to post
     POST_FORM = {
         'FAPTNUM': apt_num,
         'FBORO': borough,
@@ -49,17 +51,18 @@ def get_bbl(street_num, street_name, apt_num, borough_name):
 
     # Fields should be None. An empty string should not be called
     # an error (eg. an empty string for FAPTNUM is expected for coops)
-    if any(x is None for x in POST_FORM.values()):
-        print 'ERROR: Missing FORM data for POST request @get_bbl'
+    if any(x is None for x in list(POST_FORM.values())):
+        print('Bad Inputs Error: Don\'t have everything needed'
+              'to make POST request')
         return 0
 
-    page = requests.post(URL, data=POST_FORM)
+    response = requests.post(URL, data=POST_FORM)
 
     # Try the POST request, and make some soup
-    if page.status_code == 200:
-        soup = BeautifulSoup(page.text)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text)
     else:
-        print 'ERROR: bad POST response @get_bbl'
+        print('Request Error: Did not get 200 HTTP response code')
         return 0
 
     lot_tag = soup.find('input', attrs={'name': 'q49_lot'})
@@ -70,7 +73,7 @@ def get_bbl(street_num, street_name, apt_num, borough_name):
         block = block_tag.get('value')
 
     else:
-        print "Error: HTML parser could not find block or lot @get_bbl"
+        print('Weird Error: HTML parser could not find block and/or lot')
         return 0
 
-    return borough, block, lot
+    return unicode(borough), block, lot
