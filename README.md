@@ -4,7 +4,7 @@
 
 little bbl is a Python library to query nyc.gov data for borough, block and lot info.
 
-For information on usage check out the github page for [little bbl](//suitey.github.io/little-bbl)
+For information on usage check out the github page for [little bbl](http://suitey.github.io/little-bbl)
 
 ### Requirements
  * [Python](http://www.python.org/) (duh)
