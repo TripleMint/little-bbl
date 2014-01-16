@@ -16,6 +16,21 @@ For information on usage check out the github page for [little bbl](//suitey.git
  * [six](http://pythonhosted.org/six/) (For supporting python 2 and 3)
   * tested with 1.5.2
 
+### Usage
+
+    import littlebbl
+
+    # Takes street number, street, unit and borough
+    littlebbl.resolve('75', '46th street', '7U', 'MH')
+
+The borough codes are:
+
+    'MH' = Manhattan
+    'BX' = Bronx
+    'BK' = Brooklyn
+    'QN' = Queens
+    'SI' = Staten Island
+
 ### License
 
 The MIT License (MIT)
