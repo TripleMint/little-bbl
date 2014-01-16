@@ -1,4 +1,7 @@
 # little bbl
+
+[![Build Status](https://travis-ci.org/Suitey/little-bbl.png?branch=master)](https://travis-ci.org/Suitey/little-bbl)
+
 little bbl is a Python library to query nyc.gov data for borough, block and lot info.
 
 For information on usage check out the github page for [little bbl](//suitey.github.io/little-bbl)
