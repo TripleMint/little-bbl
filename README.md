@@ -6,7 +6,7 @@ little bbl is a Python library to query nyc.gov data for borough, block and lot 
 
 For information on usage check out the github page for [little bbl](http://suitey.github.io/little-bbl)
 
-### Requirements
+## Requirements
  * [Python](http://www.python.org/) (duh)
    * Tested with Python 2.7.5 and 3.3.3 (but we aren't doing anything crazy so it is probably safe to assume it works on 2.7+)
  * [Requests](http://python-requests.org)
@@ -15,13 +15,15 @@ For information on usage check out the github page for [little bbl](http://suite
  * [six](http://pythonhosted.org/six/) (For supporting python 2 and 3)
   * tested with 1.5.2
 
-### Usage
+## Usage
 
     import littlebbl
 
     # Takes street number, street, unit and borough
-    littlebbl.resolve('75', '46th street', '7U', 'MH')
-
+    > resolved = littlebbl.resolve('20', 'east 68th street', '3B', 'MH')
+    > resolved
+      Out: (u'1', u'01382', u'1003')  # (borough, block, lot) 
+      
 The borough codes are:
 
     'MH' = Manhattan
