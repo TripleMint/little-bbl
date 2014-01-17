@@ -3,7 +3,8 @@
 [![Build Status](https://travis-ci.org/Suitey/little-bbl.png?branch=master)](https://travis-ci.org/Suitey/little-bbl)
 
 little bbl is a Python library to query nyc.gov data for borough, block and lot info.
-For information on usage check out the github page for [little bbl](http://suitey.github.io/little-bbl)
+
+It has a shiny new github page here -> [little bbl](http://suitey.github.io/little-bbl) (ooooh aaaaaaah)
 
 ## Requirements
  * [Python](http://www.python.org/) (duh)
@@ -35,7 +36,7 @@ The borough codes are:
 
 We would be remiss if we did not mention that the data we are getting this from is ruled by the law of the djungle. It is different for coops, condos and condops. And sometimes you actually need a weird unobvious value for the unit id to get access (sorry for digressing). We do however estimate that this will give you what you are looking for about ~80 % of the time.
 
-For a minor digression on the state of the data we recommend reading [this](http://corenyc.com/blog/2008/10/actionable-data/)
+For a minor digression on the state of the data we recommend reading [this](http://corenyc.com/blog/2008/10/actionable-data/).
 
 ## Help me help you
 
