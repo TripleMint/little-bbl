@@ -10,10 +10,10 @@ For information on usage check out the github page for [little bbl](http://suite
  * [Python](http://www.python.org/) (duh)
    * Tested with Python 2.7.5 and 3.3.3 (but we aren't doing anything crazy so it is probably safe to assume it works on 2.7+)
  * [Requests](http://python-requests.org)
-   * tested with 2.0.0 and 2.2.0
+   * Tested with 2.0.0 and 2.2.0
  * [BeautifulSoup==4.3.2](http://www.crummy.com/software/BeautifulSoup/)
  * [six](http://pythonhosted.org/six/) (For supporting python 2 and 3)
-  * tested with 1.5.2
+   * Tested with 1.5.2
 
 ## Usage
 
