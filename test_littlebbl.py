@@ -1,11 +1,10 @@
 # Tests for little bbl
 import littlebbl
 import six
-# import pytest
 
 
 def test_unicode_returned():
-    k = littlebbl.resolve('310', 'EAST 46TH STREET', '7U', 'MH')
+    k = littlebbl.resolve('20', 'east 68th street', '3B', 'MH')
     assert isinstance(k[0], six.text_type)
     assert isinstance(k[1], six.text_type)
     assert isinstance(k[2], six.text_type)
