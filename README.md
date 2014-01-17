@@ -6,7 +6,7 @@ little bbl is a Python library to query nyc.gov data for borough, block and lot 
 little bbl scrapes the NYC DOF page to resolve the BBL for a given address. The DOF page
 has proven to be more reliable than scraping ACRIS directly.
 
-It has a shiny new github page here -> [little bbl](http://suitey.github.io/little-bbl) (ooooh aaaaaaah)
+Read all about it at [opensource.suitey.com/little-bbl](http://opensource.suitey.com/little-bbl).
 
 ## Requirements
  * [Python](http://www.python.org/) (duh)
