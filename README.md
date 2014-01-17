@@ -32,7 +32,7 @@ The borough codes are:
     'QN' = Queens
     'SI' = Staten Island
 
-### License
+## License
 
 The MIT License (MIT)
 
