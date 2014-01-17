@@ -42,7 +42,7 @@ For a minor digression on the state of the data we recommend reading [this](http
 
 ## Help me help you
 
-Questions? Improvements? Issues? Use the github issues tracker.
+Questions? Improvements? Issues? Use the [github issues tracker](https://github.com/Suitey/little-bbl/issues).
 
 ## License
 
