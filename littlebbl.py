@@ -16,6 +16,7 @@ def get_borough_number(borough_name):
     '''
     return {
         'MH': '1',
+        'NY': '1',
         'BX': '2',
         'BK': '3',
         'QN': '4',
@@ -56,6 +57,7 @@ def resolve(street_num, street_name, apt_num, borough_name):
 
     # Python 2 and 3 compatible
     values = list(POST_FORM.values()) if six.PY3 else POST_FORM.values()
+
 
     if any(x is None for x in values):
         print('Bad Inputs Error: Don\'t have everything needed'
