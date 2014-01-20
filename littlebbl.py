@@ -1,3 +1,5 @@
+ #! /usr/bin/env python
+
 '''
 url: https://suitey.github.io/little-bbl
 
@@ -32,6 +34,9 @@ from bs4 import BeautifulSoup
 # For supporting python 2 and 3
 import six
 
+# Our exceptions
+from utils import exceptions
+
 
 def get_borough_number(borough_name):
     '''
@@ -65,8 +70,7 @@ def resolve(street_num, street_name, apt_num, borough_name):
 
     # Break if borough not in MH, BX, BK, QN, SI
     if not borough:
-        print('Invalid Borough... breaking.')
-        return
+        raise exceptions.InvalidBoroughException('[MH, BX, BK, QN, SI]')
 
     # Generate data to post
     POST_FORM = {
@@ -80,23 +84,31 @@ def resolve(street_num, street_name, apt_num, borough_name):
     # Python 2 and 3 compatible
     values = list(POST_FORM.values()) if six.PY3 else POST_FORM.values()
 
-
     if any(x is None for x in values):
         print('Bad Inputs Error: Don\'t have everything needed'
               'to make POST request')
         return None
 
+    # TODO
+    # should we handle requests exceptions here?
+    # Im thinking ConnectionError, Timeout, and the all
+    # encompassing RequestException?
+
     # Get the page
     response = requests.post(URL, data=POST_FORM)
 
-    # Make sure got solid response
+    # Init soup
+    soup = None
+
+    # Make sure we got a solid response
     if response.status_code == 200:
 
         # Make some soup
         soup = BeautifulSoup(response.text)
     else:
-        print('Request Error: Did not get 200 HTTP response code')
-        return None
+        raise exceptions.CrappyResponseException(
+            'Response did not have HTTP 200 code'
+        )
 
     # Find lot and block in soup
     lot_tag = soup.find('input', attrs={'name': 'q49_lot'})
@@ -109,16 +121,23 @@ def resolve(street_num, street_name, apt_num, borough_name):
 
     else:
 
+        # import pdb; pdb.set_trace()
         # If we did not get a lot and block we find what the error was
         # in the soup instead
         error = soup.find(
-            'form', attrs={'name': 'FINDMP1A'}).find(
-            'font', attrs={'color': 'red'}).text
+            'form', attrs={'name': 'FINDMP1A'}
+        )
+
+        # Make sure we found the error form at all, else it will crash
         if error:
-            print('ERROR: {}'.format(error))
+            error.find('font', attrs={'color': 'red'}).text
+
+        if error:
+            raise exceptions.NothingFoundException(error)
         else:
-            print('Unknown Error')
-        return None
+            raise exceptions.NothingFoundException(
+                "Couldn't extract error from soup"
+            )
 
     # Block and lot are already in unicode
     return six.u(borough), block, lot
