@@ -21,18 +21,22 @@ We even made a little **demo available at [opensource.suitey.com/little-bbl](htt
 
     import littlebbl
 
-    # Takes street number, street, unit and borough
-    > resolved = littlebbl.resolve('20', 'east 68th street', '3B', 'MH')
-    > resolved
-      Out: (u'1', u'01382', u'1003')  # (borough, block, lot) 
+````python
+# Takes street number, street, unit and borough
+> resolved = littlebbl.resolve('20', 'east 68th street', '3B', 'MH')
+> resolved
+  Out: (u'1', u'01382', u'1003')  # (borough, block, lot) 
+````
       
 The borough codes are:
 
-    'MH' = Manhattan
-    'BX' = Bronx
-    'BK' = Brooklyn
-    'QN' = Queens
-    'SI' = Staten Island
+````python
+'MH' = Manhattan
+'BX' = Bronx
+'BK' = Brooklyn
+'QN' = Queens
+'SI' = Staten Island
+````
 
 ## Reliability (disclaimer)
 
